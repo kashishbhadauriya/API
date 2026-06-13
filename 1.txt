@@ -1,0 +1,85 @@
+1. Create Project Folder
+mkdir practice
+cd practice
+
+
+
+2. Initialize Node.js Project
+npm init -y
+This creates:
+package.json
+
+
+
+3. Install Required Packages
+npm install express ejs mongoose dotenv
+Packages:
+express → Backend framework
+ejs → Template engine
+mongoose → MongoDB ODM
+dotenv → Environment variables
+
+
+
+4. Create Folder Structure
+practice/
+│
+├── models/
+│   └── users.js
+│
+├── views/
+│   ├── signup.ejs
+│   └── login.ejs
+│
+├── .env
+├── index.js
+├── package.json
+
+
+
+
+5. Create MongoDB Atlas Cluster
+Create Account
+
+MongoDB Atlas → Sign Up
+
+Create Project: Practice Project
+Create Cluster: M0 FREE
+Create Database User: username, password
+
+6. Create .env
+"mongodb+srv://username:password@cluster1.xztgwb7.mongodb.net/MongoDB_me_kis_naam_se_hoga?appName=Cluster1"
+
+
+7. Create User Model- (basically jis joh data apko stor ekrna h database me usko kis syntax se kais ekya rkhna h yha likhna h) 
+
+
+8. Create Express Server: index.js
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const User = require('./models/users');
+const app = express();
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log('MongoDB Connected');
+})
+.catch((err) => {
+    console.log(err);
+});
+
+
+9. Create Routes
+
+
+10. Create  POST Route
+
+
+11. Start Server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+
+12.  node index.js

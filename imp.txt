@@ -1,0 +1,12 @@
+When building a backend application with Express and MongoDB, HTML has several limitations compared to EJS.
+1.No Dynamic Data
+2.No Loops
+
+
+require('dotenv').config()-
+basically, require('dotenv').config() ka use .env file ko read karne ke liye hota hai. .env file me sensitive information jaise MongoDB URI, passwords, API keys store karte hain. Ye values process.env me load ho jaati hain, jise hum index.js ya kisi bhi file me use kar sakte hain.
+
+
+
+cluster-
+ 
