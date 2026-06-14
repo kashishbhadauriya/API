@@ -83,7 +83,7 @@ app.post('/notes',async(req,res)=>{
 
 app.get('/notes', async (req, res) => {
     try {
-        const notes = await Note.insertMany([]);
+        const notes = await Note.find();
         res.status(200).json({
             message: 'Notes retrieved successfully',
             notes: notes
