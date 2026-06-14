@@ -60,7 +60,6 @@ app.post('/notes',async(req,res)=>{
     const { title, name } = req.body;
     try {
         const newNote = new Notes.insertMany({ title, name });
-        await newNote.save();
         res.status(200).json({
             message: 'Note created successfully',
             note: newNote
