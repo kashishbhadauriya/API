@@ -45,7 +45,7 @@ app.get('/signup',(req,res)=>{
 })
 const notes = [];
 
-app.post('/notes', (req, res) => {
+/*app.post('/notes', (req, res) => {
     notes.push(req.body);
     console.log(req.body);
 
@@ -54,9 +54,9 @@ app.post('/notes', (req, res) => {
         message: 'Note received'
     });
 });
+*/
 
-
-/*app.post('/notes',async(req,res)=>{
+app.post('/notes',async(req,res)=>{
     const { title, name } = req.body;
     try {
         const newNote = new Note({ title, name });
@@ -72,16 +72,17 @@ app.post('/notes', (req, res) => {
         });
     }
 });
-*/
 
-app.get('/notes', (req, res) => {    res.status(200).json({
+
+/*app.get('/notes', (req, res) => {    res.status(200).json({
         message: 'Notes retrieved successfully',
         notes: notes
 
     });
 });
+*/
 
-/*app.get('/notes', async (req, res) => {
+app.get('/notes', async (req, res) => {
     try {
         const notes = await Note.find();
         res.status(200).json({
@@ -96,7 +97,7 @@ app.get('/notes', (req, res) => {    res.status(200).json({
     }
 }
 );
-*/
+
 
 app.delete('/notes/:index', (req, res) => {
     const index = parseInt(req.params.index);
