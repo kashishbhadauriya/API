@@ -97,12 +97,13 @@ app.get('/notes', async (req, res) => {
             message: 'Notes retrieved successfully',
             notes: notes
         });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: 'Error retrieving notes'
-        });
-    }
+    }catch (err) {
+    console.log(err);
+    res.status(500).json({
+        message: 'Error retrieving notes',
+        error: err.message
+    });
+}
 }
 );
 
