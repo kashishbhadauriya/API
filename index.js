@@ -56,10 +56,18 @@ const notes = [];
 });
 */
 
-app.post('/notes',async(req,res)=>{
-    const { title, name } = req.body;
+app.post('/notes', async (req, res) => {
     try {
-        const newNote = new Notes.insertMany({ title, name });
+        const { title, name } = req.body;
+        console.log(req.body);
+
+        const newNote = new Note({
+            title,
+            name
+        });
+
+        await newNote.save();
+
         res.status(200).json({
             message: 'Note created successfully',
             note: newNote
@@ -84,6 +92,7 @@ app.post('/notes',async(req,res)=>{
 app.get('/notes', async (req, res) => {
     try {
         const notes = await Note.find();
+
         res.status(200).json({
             message: 'Notes retrieved successfully',
             notes: notes
@@ -109,6 +118,7 @@ app.delete('/notes/:index', (req, res) => {
 });
 
 app.patch('/notes/:index', (req, res) => {
+
     const index = req.params.index;
     const name = req.body.name;
     notes[index].name = name;
